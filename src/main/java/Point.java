@@ -25,16 +25,18 @@ public class Point {
   private static final double MEAN_EARTH_RADIUS = 6.371009e+6;
 
   // attributes declaration
-  ZonedDateTime time = ZonedDateTime.now();
   double longitude;
   double latitude;
   double elevation;
+  ZonedDateTime time;
+
 
   // constructor
-  public Point(double longitude, double latitude, double elevation) {
+  public Point(ZonedDateTime time, double longitude, double latitude, double elevation) {
     this.longitude = longitude; // 'this' is used to reference the initial variable declaration
     this.latitude = latitude;
     this.elevation = elevation;
+    this.time = time;
 
 
     if (longitude < MIN_LONGITUDE || longitude > MAX_LONGITUDE) {
@@ -46,7 +48,7 @@ public class Point {
     }
   }
 
-  // getter methods
+  // getter method
   public ZonedDateTime getTime() {
     return time;
   }
@@ -65,10 +67,10 @@ public class Point {
 
   // Other methods
   public String toString() {
-    String formatedLong = String.format("%,.2f", longitude);
-    String formatedLat = String.format("%,.2f", latitude);
-    String formatedElv = String.format("%,.1f", elevation);
-    String finalCombine = "(" + formatedLong + ", " + formatedLat + "), " + formatedElv + " m";
+    String formattedLong = String.format("%,.5f", longitude);
+    String formattedLat = String.format("%,.5f", latitude);
+    String formattedElv = String.format("%,.1f", elevation);
+    String finalCombine = "(" + formattedLong + ", " + formattedLat + "), " + formattedElv + " m";
     
     return finalCombine;
   }

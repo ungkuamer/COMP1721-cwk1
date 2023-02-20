@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 import static java.lang.Math.abs;
@@ -11,7 +13,7 @@ import static java.lang.Math.toRadians;
 /**
  * Represents a point in space and time, recorded by a GPS sensor.
  *
- * @author Nick Efford & YOUR NAME
+ * @author Nick Efford & Ungku Amer sc22uaib
  */
 public class Point {
   // Constants useful for bounds checking, etc
@@ -21,6 +23,46 @@ public class Point {
   private static final double MIN_LATITUDE = -90.0;
   private static final double MAX_LATITUDE = 90.0;
   private static final double MEAN_EARTH_RADIUS = 6.371009e+6;
+
+  // attributes declaration
+  ZonedDateTime time = ZonedDateTime.now();
+  double longitude;
+  double latitude;
+  double elevation;
+
+  // constructor
+  public Point(double longitude, double latitude, double elevation) {
+    this.longitude = longitude;
+    this.latitude = latitude;
+    this.elevation = elevation;
+
+    if (longitude < MIN_LONGITUDE || longitude > MAX_LONGITUDE) {
+      throw new GPSException("Invalid Coordinates");
+    }
+
+    if (latitude < MIN_LATITUDE || latitude > MAX_LATITUDE) {
+      throw new GPSException("Invalid Coordinates");
+    }
+  }
+
+  // getter methods
+  public ZonedDateTime getTime() {
+    return time;
+  }
+
+  public double getLongitude() {
+    return longitude;
+  }
+
+  public double getLatitude() {
+    return latitude;
+  }
+
+  public double getElevation() {
+    return elevation;
+  }
+
+
 
   // TODO: Create a stub for the constructor
 

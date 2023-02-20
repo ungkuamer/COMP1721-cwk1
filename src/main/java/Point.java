@@ -32,9 +32,10 @@ public class Point {
 
   // constructor
   public Point(double longitude, double latitude, double elevation) {
-    this.longitude = longitude;
+    this.longitude = longitude; // 'this' is used to reference the initial variable declaration
     this.latitude = latitude;
     this.elevation = elevation;
+
 
     if (longitude < MIN_LONGITUDE || longitude > MAX_LONGITUDE) {
       throw new GPSException("Invalid Coordinates");
@@ -60,6 +61,16 @@ public class Point {
 
   public double getElevation() {
     return elevation;
+  }
+
+  // Other methods
+  public String toString() {
+    String formatedLong = String.format("%,.2f", longitude);
+    String formatedLat = String.format("%,.2f", latitude);
+    String formatedElv = String.format("%,.1f", elevation);
+    String finalCombine = "(" + formatedLong + ", " + formatedLat + "), " + formatedElv + " m";
+    
+    return finalCombine;
   }
 
 

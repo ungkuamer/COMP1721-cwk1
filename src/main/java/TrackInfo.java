@@ -17,11 +17,12 @@ public class TrackInfo {
     Track newTrack = new Track();
     newTrack.readFile(args[0]);
     double distKM = newTrack.totalDistance()/1000;
+    Point highest = newTrack.highestPoint();
+    Point lowest = newTrack.lowestPoint();
 
     System.out.printf("%d points in track\n", newTrack.size());
-    // implement lowest point code
-    // implement highest point code
-
+    System.out.printf("(%.5f, %.5f), %.1f\n", lowest.getLongitude(), lowest.getLatitude(), lowest.getElevation());
+    System.out.printf("(%.5f, %.5f), %.1f\n", highest.getLongitude(), highest.getLatitude(), highest.getElevation());
     System.out.printf("Total distance = %.3f km\n", distKM);
     System.out.printf("Average speed = %.3f m/s\n", newTrack.averageSpeed());
 

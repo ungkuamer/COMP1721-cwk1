@@ -1,5 +1,3 @@
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 import static java.lang.Math.abs;
@@ -70,9 +68,8 @@ public class Point {
     String formattedLong = String.format("%,.5f", longitude);
     String formattedLat = String.format("%,.5f", latitude);
     String formattedElv = String.format("%,.1f", elevation);
-    String finalCombine = "(" + formattedLong + ", " + formattedLat + "), " + formattedElv + " m";
-    
-    return finalCombine;
+
+    return "(" + formattedLong + ", " + formattedLat + "), " + formattedElv + " m";
   }
 
 
@@ -92,7 +89,7 @@ public class Point {
   // IMPORTANT: Do not alter anything beneath this comment!
 
   /**
-   * Computes the great-circle distance or orthodromic distance between
+   * Computes the great-circle distance or orthorhombic distance between
    * two points on a spherical surface, using Vincenty's formula.
    *
    * @param p First point

@@ -15,11 +15,10 @@ public class Track {
     // TODO: Create a stub for the constructor
     public Track() {
         trackPoints = new ArrayList<>();
-
     }
 
     // TODO: Create a stub for readFile()
-    public void readFile(String fileName) throws IOException { // change to GPSException
+    public void readFile(String fileName) throws IOException {
         trackPoints.removeAll(trackPoints);
         try {
             Scanner scanner = new Scanner(new File(fileName));
@@ -124,6 +123,7 @@ public class Track {
         }
         return totalD;
     }
+
     // TODO: Create a stub for averageSpeed()
     public Double averageSpeed() {
 

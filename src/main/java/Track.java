@@ -6,7 +6,7 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 /**
  * Represents a point in space and time, recorded by a GPS sensor.
  *
- * @author Ungku Amer Iskandar
+ * @author Ungku Amer sc22uaib
  */
 public class Track {
 

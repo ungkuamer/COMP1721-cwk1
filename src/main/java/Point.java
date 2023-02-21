@@ -28,10 +28,10 @@ public class Point {
   double elevation;
   ZonedDateTime time;
 
-
+  // TODO: Create a stub for the constructor
   // constructor
   public Point(ZonedDateTime time, double longitude, double latitude, double elevation) {
-    this.longitude = longitude; // 'this' is used to reference the initial variable declaration
+    this.longitude = longitude;
     this.latitude = latitude;
     this.elevation = elevation;
     this.time = time;
@@ -47,23 +47,28 @@ public class Point {
   }
 
   // getter method
+  // TODO: Create a stub for getTime()
   public ZonedDateTime getTime() {
     return time;
   }
 
+  // TODO: Create a stub for getLatitude()
   public double getLongitude() {
     return longitude;
   }
 
+  // TODO: Create a stub for getLongitude()
   public double getLatitude() {
     return latitude;
   }
 
+  // TODO: Create a stub for getElevation()
   public double getElevation() {
     return elevation;
   }
 
   // Other methods
+  // TODO: Create a stub for toString()
   public String toString() {
     String formattedLong = String.format("%,.5f", longitude);
     String formattedLat = String.format("%,.5f", latitude);
@@ -71,20 +76,6 @@ public class Point {
 
     return "(" + formattedLong + ", " + formattedLat + "), " + formattedElv + " m";
   }
-
-
-
-  // TODO: Create a stub for the constructor
-
-  // TODO: Create a stub for getTime()
-
-  // TODO: Create a stub for getLatitude()
-
-  // TODO: Create a stub for getLongitude()
-
-  // TODO: Create a stub for getElevation()
-
-  // TODO: Create a stub for toString()
 
   // IMPORTANT: Do not alter anything beneath this comment!
 

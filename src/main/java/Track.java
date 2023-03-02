@@ -54,14 +54,12 @@ public class Track {
     }
 
     // TODO: Create a stub for get()
-    public Point get(int points) throws GPSException{
+    public Point get(int points) throws GPSException {
         if (points < 0) {
             throw new GPSException("Points to low");
-        }
-        else if (points > trackPoints.size()-1) {
+        } else if (points > trackPoints.size() - 1) {
             throw new GPSException("Points out of bound");
-        }
-        else {
+        } else {
             return trackPoints.get(points);
         }
 
@@ -71,6 +69,7 @@ public class Track {
     public int size() {
         return trackPoints.size();
     }
+
     // TODO: Create a stub for lowestPoint()
 
     public Point lowestPoint() {
@@ -78,15 +77,16 @@ public class Track {
         if (trackPoints.size() == 0) {
             throw new GPSException("Track is empty");
         }
-        Collections.sort(trackPoints, new Comparator<Point>() {
-            @Override
-            public int compare(Point o1, Point o2) {
-                return Double.compare(o1.getElevation(), o2.getElevation());
-            }
-        });
+
+        /* Collections code is referenced from :-
+        aperkins, 2010. Sort ArrayList of custom Objects by property,
+        available at https://stackoverflow.com/a/22383137
+         */
+        Collections.sort(trackPoints, Comparator.comparing(Point::getElevation));
 
         return trackPoints.get(0);
     }
+
 
     // TODO: Create a stub for highestPoint()
 
@@ -95,15 +95,10 @@ public class Track {
         if (trackPoints.size() == 0) {
             throw new GPSException("Track is empty");
         }
-        Collections.sort(trackPoints, new Comparator<Point>() {
-            @Override
-            public int compare(Point o1, Point o2) {
-                return Double.compare(o1.getElevation(), o2.getElevation());
-            }
-        });
 
-        int getFrom = trackPoints.size()-1;
-        return trackPoints.get(getFrom);
+        Collections.sort(trackPoints, Comparator.comparing(Point::getElevation));
+
+        return trackPoints.get(trackPoints.size()-1);
     }
     // TODO: Create a stub for totalDistance()
     public Double totalDistance() {
@@ -141,7 +136,6 @@ public class Track {
             totalTime += currentTime;
         }
 
-        double avgSpeed = totalDistance()/totalTime;
-        return avgSpeed;
+        return totalDistance()/totalTime ;
     }
 }
